@@ -1,3 +1,5 @@
+
+
 var elements_to_watch = document.querySelectorAll('.watch');
 
 var callback = function(items){
@@ -46,3 +48,11 @@ gsap.to("#marquee-gsap", {
   ease: "linear",
   repeat: -1
 });
+
+const toggle = document.getElementById('navbar-toggle');
+const navLinks = document.getElementById('nav-links');
+
+toggle.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+});
+
