@@ -8,41 +8,33 @@ gsap.to('.vertical-line', {
   },
   ease: 'none'
 });
-function animateCurvedLine(progress) {
-  // progress: 0 (top) -> 1 (bottom)
-  const svgHeight = window.innerHeight;
-  const startX = 40, startY = 0;
-  let d;
 
-  if (progress < 0.5) {
-    // Solo linea dritta
-    const currentY = svgHeight * progress;
-    d = `M${startX},${startY} L${startX},${currentY}`;
-  } else {
-    // Dritta fino a metà, poi curva dolcemente verso sinistra
-    const curveStartY = svgHeight * 0.5;
-    const curveProgress = (progress - 0.4) * 2; // 0 a 1 nella seconda metà
-    const endY = curveStartY + (svgHeight * 0.5 * curveProgress);
-    // Valori più piccoli per una curva più dolce e meno accentuata
-    const controlX = startX - 10 * curveProgress; // punto di controllo leggermente a sinistra
-    const endX = startX - 780 * curveProgress;    // punto finale più a sinistra
-    d = `M${startX},${startY} L${startX},${curveStartY} Q${controlX},${curveStartY + 100 * curveProgress} ${endX},${endY}`;
-  }
-
-  document.getElementById('curved-path').setAttribute('d', d);
-}
-
-gsap.to({}, {
+gsap.to('.divider-line', {
+  width: '100vw',
   scrollTrigger: {
-    trigger: "body",
-    start: "top top",
-    end: "bottom bottom",
-    scrub: 0.7, // <--- più alto = più morbido/ritardato
-    onUpdate: self => {
-      animateCurvedLine(self.progress);
-    }
-  }
+    trigger: '.divider-line',
+    start: 'top 80%',
+    end: 'top 30%',     
+    scrub: 2
+  },
+  ease: 'none'
 });
+
+
+// Animazione custom per il titolo about
+const aboutTitle = document.querySelector('.custom-animate');
+if (aboutTitle) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        aboutTitle.classList.add('in-view');
+      } else {
+        aboutTitle.classList.remove('in-view');
+      }
+    });
+  }, { threshold: 0.5 });
+  observer.observe(aboutTitle);
+}
 
 
 var elements_to_watch = document.querySelectorAll('.watch');
@@ -99,4 +91,5 @@ const navLinks = document.getElementById('nav-links');
 toggle.addEventListener('click', () => {
   navLinks.classList.toggle('open');
 });
+
 

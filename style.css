@@ -21,12 +21,63 @@ h2 {
     gap: 16rem;
 }
 
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    font-size: 4vh;
+}
+
+.panel-main-text {
+  font-family: 'Bodoni Moda', serif;
+  font-size: 3rem;
+  color: #f3efef;
+  font-style: normal;
+  font-weight: 400;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+  letter-spacing: 0;
+  background: none;
+}
+
+.panel-main-text.italic {
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.panel-main-text.underline {
+  font-style: italic;
+  border-bottom: 3px solid #f56900;
+  padding-bottom: 0.1em;
+}
+
+.panel-main-text.star {
+  color: #f56900;
+  font-size: 2.5rem;
+  font-style: normal;
+  vertical-align: middle;
+}
+
+.panel-main-text.highlight {
+  color: #f3efef;
+  border-bottom: 3px solid #f56900;
+   filter: blur(1px);
+}
+
+@media (max-width: 767.98px) {
+  .panel-main-text {
+    font-size: 1.5rem;
+  }
+  .panel-main-text.star {
+    font-size: 1.2rem;
+  }
+}
+
 .stella {
-    width: 70px;
-    height: 70px;
-    margin-left: 5rem;
-    margin-right: 5rem;
-    display: inline-block;
+  width: 70px;
+  height: 70px;
+  margin: 0 auto;
+  display: inline-block;
 }
 
 .h2-animation {
@@ -121,38 +172,6 @@ h2 {
   justify-content: center;
 }
 
-.img-hover-container.single {
-    display: flex;
-    justify-content: center;
-    margin-left: 900px;
-    position: relative;
-    width: 450px; 
-    height: auto;
-    z-index: 0;
-}
-
-.img-animate {
-    width: 100%;
-    display: block;
-    transition: transform 0.3s;
-    position: relative;
-    z-index: 1;
-}
-
-.img-hover-container.single::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: #f56900;
-    opacity: 0;
-    transition: opacity 0.3s;
-    z-index: 2;
-}
-
-.img-hover-container.single:hover::before {
-    opacity: 1;
-}
-
 .img-caption {
   position: static !important;
   opacity: 1 !important;
@@ -165,54 +184,106 @@ h2 {
   text-align: center;
 }
 
-.img-hover-container.single:hover .img-caption {
-    opacity: 1;
-}
 
 
-/* Posizionamento img2 in basso a sinistra */
-.img2-container {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 40%;
-    margin-left: 8rem;
-}
-
-.img-hover-container::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(255,140,0,0.7);
-    opacity: 0;
-    transition: opacity 0.3s;
-    z-index: 2;
-}
-
-.img-hover-container:hover::before {
-    opacity: 1;
-}
 
 --------------------------------------------------------------
-.panel--about::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  filter: blur(5px); 
-  z-index: -1;
-}
 
 .about-content {
   position: relative;
   z-index: 1;
-  text-align: left;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
   color: #F1F3F5;
 }
+
+/* Centra e rende responsive la sezione about */
+.panel--about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  background: transparent;
+}
+
+.about-title {
+  font-family: 'Bodoni Moda', serif;
+  font-size: 5rem;
+  font-weight: 400;
+  color: #F1F3F5;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0;
+}
+
+
+.about-exclaim {
+  font-size: 1.1em;
+  font-weight: 700;
+}
+
+.about-email-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.about-email {
+  font-family: 'Bodoni Moda', serif;
+  font-size: 2.5rem;
+  color: #f56900;
+  font-weight: 400;
+  position: relative;
+}
+
+.about-underline {
+  border-bottom: 3px solid #f56900;
+  padding-bottom: 0.1em;
+}
+
+.about-orange {
+  color: #f56900;
+}
+
+.about-arrow {
+  font-size: 2.5rem;
+  vertical-align: middle;
+}
+
+.about-for {
+  font-family: 'Bodoni Moda', serif;
+  font-size: 2.5rem;
+  font-style: italic;
+}
+
+.about-arrows-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.about-collab {
+  font-family: 'Bodoni Moda', serif;
+  font-size: 2.5rem;
+  margin-left: 1rem;
+}
+
+.about-star {
+  color: #f56900;
+  font-size: 2.5rem;
+  margin-left: 1rem;
+}
+
+@media (max-width: 767.98px) {
+  .about-title { font-size: 2rem; }
+  .about-email, .about-for, .about-arrow, .about-collab, .about-star { font-size: 1.2rem; }
+}
+
+
 
 .intro{
   font-size: 20px;
@@ -254,12 +325,12 @@ h2 {
 
 .subtitle{
     font-size: 1.5rem;
-    color:#666; 
+    color:#f2f0f0; 
     max-width: 500px;
     padding-bottom: 10%;
+    display: flex;
+    flex-direction: column;  
 }
-
-
 
 /*line like sidebar*/
 .vertical-line {
@@ -331,7 +402,7 @@ body {
 }
 
 .divider-line {
-  width: 100vw;
+  width: 0;
   height: 2px;
   background: #fff;
   margin: 2rem 0;
@@ -339,10 +410,17 @@ body {
   position: relative;
   left: 0;
   z-index: 100;
+  transition: width 0.3s;
+  float: right;
 }
-@media (min-width: 768px) {
-  .divider-line {
-    height: 2px;
-    margin: 3rem 0;
-  }
+
+.custom-animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(.215, .61, .355, 1), transform 0.8s cubic-bezier(.215, .61, .355, 1);
+}
+
+.custom-animate.in-view {
+  opacity: 1;
+  transform: translateY(0);
 }
