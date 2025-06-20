@@ -1,4 +1,13 @@
-
+gsap.to('.vertical-line', {
+  height: '100vh',
+  scrollTrigger: {
+    trigger: 'body',
+    start: 'top top',
+    end: 'bottom bottom',
+    scrub: true
+  },
+  ease: 'none'
+});
 
 var elements_to_watch = document.querySelectorAll('.watch');
 

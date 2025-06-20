@@ -1,11 +1,17 @@
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth;  
+      -ms-overflow-style: none;
+    scrollbar-width: none; 
 }
 
 body {
     background-color: #0c0a0a; 
     color: #F1F3F5;
     font-family: Instrument Sans, sans-serif;
+}
+
+body::-webkit-scrollbar {
+  display: none;               
 }
 
 h2 {
@@ -33,7 +39,6 @@ h2 {
 
 
 
-
 .section{
     position: relative;
     z-index : 1;
@@ -41,17 +46,6 @@ h2 {
     height: 100vh;
 }
 
-.section.watch::before {
-    content: "";
-    position: absolute;
-    left: 110px; 
-    top: 0;
-    height: 100%;
-    width: 2px;
-    background: #efe5e5ac;
-    border-radius: 1px;
-    z-index: 2;
-}
 
 .title{
     height: 100vh;
@@ -80,20 +74,37 @@ h2 {
     opacity: 1;
 }
 
-.panel{
-    min-height: 100vh;
+.panel {
+    min-height: 60vh;
     width: 100%;
-    background: #92440f;
+    background: transparent;
     position: relative;
     z-index: 2;
-    color:#f7f9fa;
+    color: #f7f9fa;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 2rem 0;
 }
 
-.panel--colored{
-    background: #130909;
+@media (max-width: 991.98px) {
+  .panel {
+    min-height: 40vh;
+    padding: 1rem 0;
+  }
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .title-big, h2.title-big {
+    font-size: 2rem;
+  }
+  .stella {
+    width: 40px;
+    height: 40px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
 }
 
 .container{
@@ -105,7 +116,7 @@ h2 {
 .panel--about {
   position: relative;
   height: 100vh;
-  background: rgb(59, 8, 16); /* Sfondo Collaborations */
+  background: #f56900;
   overflow: hidden;
   justify-content: center;
 }
@@ -132,7 +143,7 @@ h2 {
     content: "";
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(81, 12, 3, 0.859);
+    background: #f56900;
     opacity: 0;
     transition: opacity 0.3s;
     z-index: 2;
@@ -146,7 +157,7 @@ h2 {
   position: static !important;
   opacity: 1 !important;
   background: none !important;
-  color: #fff;
+  color: #0c0c0c;
   font-size: 1.2rem;
   font-weight: bold;
   margin-top: 0.5rem;
@@ -248,45 +259,27 @@ h2 {
     padding-bottom: 10%;
 }
 
-.orange-text{
-    font-size: 2rem;
-    color:#f56900;
-    text-align: center;
-    font-weight: bold;
-}
 
 
-.footer {
-    height: 50vh;
-    background: #eee;
-    position: relative;
-    z-index: 3;
-}
-
-/* Colore dimensione della scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-  background: #1a1a1a;
-}
-
-/* la parte che si muove */
-::-webkit-scrollbar-thumb {
-  background: orange;
-  border-radius: 8px;
-}
-
-/* Colore fondo */
-::-webkit-scrollbar-corner {
-  background: #333;
+/*line like sidebar*/
+.vertical-line {
+  position: fixed;
+  left: 180px;          
+  top: 0;
+  width: 4px;
+  height: 0;           
+  background: #f56900;
+  z-index: 5;
+  transition: box-shadow 0.3s;
 }
 
 .sidebar {
     display: flex;
     position: fixed; 
-    left: 0; 
+    left: 70px; 
     top: 0; 
     height: 100vh;
-    width: 180px;  
+    width: 100px;  
     z-index: 3;
     padding: 2rem; 
     font-family: Poppins;
