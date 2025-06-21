@@ -1,3 +1,30 @@
+
+
+function createSunLines(numLines = 24, radius = 400, color = "#fff") {
+  const container = document.getElementById("sun-lines");
+  const size = radius * 2;
+  let svg = `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" style="position:absolute;top:0;left:0;">`;
+  for (let i = 0; i < numLines; i++) {
+    const angle = (i / numLines) * 2 * Math.PI;
+    const x2 = radius + radius * Math.cos(angle);
+    const y2 = radius + radius * Math.sin(angle);
+    svg += `<line x1="${radius}" y1="${radius}" x2="${x2}" y2="${y2}" stroke="${color}" stroke-width="2" opacity="${0.7 + 0.3 * Math.random()}"/>`;
+  }
+  svg += "</svg>";
+  container.innerHTML = svg;
+}
+createSunLines(24, 450, "#fff");
+
+// Rotazione animata
+let sunAngle = 0;
+setInterval(() => {
+  sunAngle += 0.2;
+  document.getElementById("sun-lines").firstChild.style.transform = `rotate(${sunAngle}deg)`;
+}, 30);
+
+
+
+
 gsap.to('.vertical-line', {
   height: '100vh',
   scrollTrigger: {

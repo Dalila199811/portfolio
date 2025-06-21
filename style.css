@@ -27,6 +27,28 @@ h3 {
     font-size: 4vh;
 }
 
+.section.watch {
+  position: relative;
+  overflow: hidden;
+  min-height: 60vh;
+}
+
+.sun-lines {
+  position: absolute;
+  top: 50%;
+  left: 90%;
+  width: 900px;
+  height: 900px;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.section.watch .title {
+  position: relative;
+  z-index: 1;
+}
+
 .panel-main-text {
   font-family: 'Bodoni Moda', serif;
   white-space: nowrap;
@@ -412,7 +434,7 @@ body {
   border: none;
   position: relative;
   left: 0;
-  z-index: 100;
+  z-index: 0;
   transition: width 0.3s;
   float: right;
 }
