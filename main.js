@@ -1,27 +1,30 @@
+// Funzione i soli
 
-
-function createSunLines(numLines = 24, radius = 400, color = "#fff") {
-  const container = document.getElementById("sun-lines");
+function createSunLines(numLines = 24, radius = 400, color = "#f56900", id = "sun-lines") {
+  const container = document.getElementById(id);
   const size = radius * 2;
   let svg = `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" style="position:absolute;top:0;left:0;">`;
   for (let i = 0; i < numLines; i++) {
-    const angle = (i / numLines) * 2 * Math.PI;
+    const angle = (i / numLines) * 4 * Math.PI;
     const x2 = radius + radius * Math.cos(angle);
     const y2 = radius + radius * Math.sin(angle);
-    svg += `<line x1="${radius}" y1="${radius}" x2="${x2}" y2="${y2}" stroke="${color}" stroke-width="2" opacity="${0.7 + 0.3 * Math.random()}"/>`;
+    svg += `<line x1="${radius}" y1="${radius}" x2="${x2}" y2="${y2}" stroke="${color}" stroke-width="1" opacity="${0.1 + 0.1 * Math.random()}"/>`;
   }
   svg += "</svg>";
   container.innerHTML = svg;
 }
-createSunLines(24, 450, "#fff");
+createSunLines(150, 200, "#F1F3F5", "sun-lines");      
+createSunLines(100, 100, "#f56900", "sun-lines-small"); 
 
 // Rotazione animata
 let sunAngle = 0;
+let sunAngleSmall = 0;
 setInterval(() => {
-  sunAngle += 0.2;
+  sunAngle += 0.1;
+  sunAngleSmall -= -0.3; 
   document.getElementById("sun-lines").firstChild.style.transform = `rotate(${sunAngle}deg)`;
+  document.getElementById("sun-lines-small").firstChild.style.transform = `rotate(${sunAngleSmall}deg)`;
 }, 30);
-
 
 
 

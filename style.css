@@ -44,6 +44,17 @@ h3 {
   pointer-events: none;
 }
 
+.sun-lines.sun-lines-small {
+  width: 200px;
+  height: 200px;
+  left: 8%;
+  bottom: 0;
+  top: auto;
+  z-index: 100;
+  position: absolute;
+  pointer-events: none;
+}
+
 .section.watch .title {
   position: relative;
   z-index: 1;
