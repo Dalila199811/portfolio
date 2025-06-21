@@ -1,30 +1,45 @@
-// Funzione i soli
-
+// Loader animation
 function createSunLines(numLines = 24, radius = 400, color = "#f56900", id = "sun-lines") {
   const container = document.getElementById(id);
+  if (!container) return;
   const size = radius * 2;
   let svg = `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" style="position:absolute;top:0;left:0;">`;
   for (let i = 0; i < numLines; i++) {
-    const angle = (i / numLines) * 4 * Math.PI;
+    const angle = (i / numLines) * 2 * Math.PI;
     const x2 = radius + radius * Math.cos(angle);
     const y2 = radius + radius * Math.sin(angle);
-    svg += `<line x1="${radius}" y1="${radius}" x2="${x2}" y2="${y2}" stroke="${color}" stroke-width="1" opacity="${0.1 + 0.1 * Math.random()}"/>`;
+    svg += `<line x1="${radius}" y1="${radius}" x2="${x2}" y2="${y2}" stroke="${color}" stroke-width="2" opacity="${0.7 + 0.3 * Math.random()}"/>`;
   }
   svg += "</svg>";
   container.innerHTML = svg;
 }
-createSunLines(150, 200, "#F1F3F5", "sun-lines");      
-createSunLines(100, 100, "#f56900", "sun-lines-small"); 
 
-// Rotazione animata
-let sunAngle = 0;
-let sunAngleSmall = 0;
-setInterval(() => {
-  sunAngle += 0.1;
-  sunAngleSmall -= -0.3; 
-  document.getElementById("sun-lines").firstChild.style.transform = `rotate(${sunAngle}deg)`;
-  document.getElementById("sun-lines-small").firstChild.style.transform = `rotate(${sunAngleSmall}deg)`;
-}, 30);
+// Loader suns
+createSunLines(40, 150, "#F1F3F5", "loader-sun-big");
+createSunLines(20, 60, "#f56900", "loader-sun-small");
+
+// Loader rotation
+let loaderAngle = 0;
+let loaderAngleSmall = 0;
+const loaderInterval = setInterval(() => {
+  loaderAngle += 2;
+  loaderAngleSmall -= 4;
+  const big = document.getElementById("loader-sun-big");
+  const small = document.getElementById("loader-sun-small");
+  if (big && big.firstChild) big.firstChild.style.transform = `rotate(${loaderAngle}deg)`;
+  if (small && small.firstChild) small.firstChild.style.transform = `rotate(${loaderAngleSmall}deg)`;
+}, 6000);
+
+// Hide loader on page load
+window.addEventListener('load', () => {
+  document.getElementById('loader-overlay').classList.add('hide');
+  setTimeout(() => {
+    document.getElementById('loader-overlay').style.display = 'none';
+    clearInterval(loaderInterval);
+  }, 6000);
+});
+
+
 
 
 

@@ -27,32 +27,44 @@ h3 {
     font-size: 4vh;
 }
 
+#loader-overlay {
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: opacity 0.6s;
+}
+
+#loader-overlay .sun-lines {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+#loader-overlay .sun-lines.sun-lines-small {
+  width: 120px;
+  height: 120px;
+  left: 30%;
+  top: 70%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+#loader-overlay.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
 .section.watch {
   position: relative;
   overflow: hidden;
   min-height: 60vh;
-}
-
-.sun-lines {
-  position: absolute;
-  top: 50%;
-  left: 90%;
-  width: 900px;
-  height: 900px;
-  transform: translate(-50%, -50%);
-  z-index: 0;
-  pointer-events: none;
-}
-
-.sun-lines.sun-lines-small {
-  width: 200px;
-  height: 200px;
-  left: 8%;
-  bottom: 0;
-  top: auto;
-  z-index: 100;
-  position: absolute;
-  pointer-events: none;
 }
 
 .section.watch .title {
@@ -190,6 +202,46 @@ h3 {
     margin-left: 1rem;
     margin-right: 1rem;
   }
+}
+
+/* button works */
+.custom-btn-works {
+  background: transparent;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-style: italic;
+  font-size: 2rem;
+  font-weight: auto;
+  border: none;
+  border-radius: 0;
+  padding: 0.5em 0;
+  margin-top: 0rem 0;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  position: relative;
+  transition: color 0.2s;
+  text-transform: none;
+  box-shadow: none;
+  outline: none;
+  display: block;
+  padding-right: 0;
+}
+
+.custom-btn-works::after {
+  content: "";
+  display: block;
+  height: 4px;
+  background: #fff;
+  margin-top: 0.3em;
+  transition: width 0.8s cubic-bezier(.215, .61, .355, 1), background 0.8s;
+  text-align: center;
+}
+
+.custom-btn-works:hover::after,
+.custom-btn-works:focus::after {
+  width: 100%;
+  background: #f56900;
 }
 
 .container{
@@ -393,25 +445,7 @@ h3 {
     align-items: flex-start;
 }
 
-.sidebar .nav-link {
-  color: #e7e4e4;
-  font-size: 1.2rem;
-  margin: 1.5rem 0;
-  text-align: left;
-  transform: rotate(270deg);
-  transform-origin: left center; 
-}
 
-/* Ruota il testo dei link della sidebar di 90 gradi */
-.rotate-text {
-  display: inline-block;
-  white-space: nowrap;
-  margin: 2.5rem 0;
-  font-size: 1.2rem;
-  letter-spacing: 0.1em;
-}
-
-/* Centra verticalmente i link nella sidebar */
 .sidebar .navbar-nav {
   height: 100%;
   display: flex;
@@ -440,7 +474,7 @@ body {
 .divider-line {
   width: 0;
   height: 2px;
-  background: #fff;
+  background: #dadada;
   margin: 2rem 0;
   border: none;
   position: relative;
