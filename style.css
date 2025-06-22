@@ -1,7 +1,7 @@
 html {
   scroll-behavior: smooth;  
-      -ms-overflow-style: none;
-    scrollbar-width: none; 
+  -ms-overflow-style: none;
+  scrollbar-width: none; 
 }
 
 body {
@@ -74,6 +74,8 @@ h3 {
 
 .panel-main-text {
   font-family: 'Bodoni Moda', serif;
+  display: inline-block;
+  overflow-x: visible;
   white-space: nowrap;
   font-size: 4rem;
   color: #f3efef;
@@ -81,8 +83,8 @@ h3 {
   line-height: 1.1;
   background: none;
   margin-right: 10vw;
-  overflow-x: auto;
   max-width: 100%;  
+
 }
 
 
@@ -126,10 +128,21 @@ h3 {
   display: inline-block;
 }
 
+.elemento2-gsap {
+  margin-left: 8px;
+  margin-right: 8px;
+  width: 90px; /* regola la dimensione se serve */
+  height: 90px;
+  vertical-align: middle;
+}
+
+
+
 .h2-animation {
     flex: 1;
     text-align: left;
 }
+
 .rotate-once {
     animation: rotate-once 0.8s cubic-bezier(.215, .61, .355, 1);
 }
@@ -308,12 +321,12 @@ h3 {
 }
 
 
-.about-exclaim {
+.contact-exclaim {
   font-size: 1.1em;
   font-weight: 700;
 }
 
-.about-email-row {
+.contact-email-row {
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -321,7 +334,7 @@ h3 {
   margin-bottom: 1.2rem;
 }
 
-.about-email {
+.contact-email {
   font-family: 'Bodoni Moda', serif;
   font-size: 2.5rem;
   color: #f56900;
@@ -329,27 +342,27 @@ h3 {
   position: relative;
 }
 
-.about-underline {
+.contact-underline {
   border-bottom: 3px solid #f56900;
   padding-bottom: 0.1em;
 }
 
-.about-orange {
+.contact-orange {
   color: #f56900;
 }
 
-.about-arrow {
+.contact-arrow {
   font-size: 2.5rem;
   vertical-align: middle;
 }
 
-.about-for {
+.contact-for {
   font-family: 'Bodoni Moda', serif;
   font-size: 2.5rem;
   font-style: italic;
 }
 
-.about-arrows-row {
+.contact-arrows-row {
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -357,23 +370,11 @@ h3 {
   margin-bottom: 1.2rem;
 }
 
-.about-collab {
+.contact-collab {
   font-family: 'Bodoni Moda', serif;
   font-size: 2.5rem;
   margin-left: 1rem;
 }
-
-.about-star {
-  color: #f56900;
-  font-size: 2.5rem;
-  margin-left: 1rem;
-}
-
-@media (max-width: 767.98px) {
-  .about-title { font-size: 2rem; }
-  .about-email, .about-for, .about-arrow, .about-collab, .about-star { font-size: 1.2rem; }
-}
-
 
 
 .intro{
@@ -432,7 +433,18 @@ h3 {
   height: 0;           
   background: #f56900;
   z-index: 5;
-  transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s;  .mobile-topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1050; /* sopra tutto */
+    background: #222; /* o il colore che preferisci */
+    justify-content: center !important;
+    display: flex !important;
+    align-items: center;
+    padding: 0.5rem 0;
+  }
 }
 
 .sidebar {
@@ -461,19 +473,6 @@ h3 {
   margin: 2rem 0;
 }
 
-body {
-  margin-left: 180px; /* lascia spazio alla sidebar su desktop */
-}
-
-@media (max-width: 767.98px) {
-  .sidebar {
-    display: none !important;
-  }
-  body {
-    margin-left: 0;
-  }
-}
-
 .divider-line {
   width: 0;
   height: 2px;
@@ -496,4 +495,64 @@ body {
 .custom-animate.in-view {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (max-width: 767.98px) {
+  .mobile-topbar .btn,
+  .btn-outline-light {
+    border: none !important;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: none !important;
+  }
+}
+
+
+
+.panel--about {
+  padding: 4vw 0 4vw 0;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+}
+
+.about-img {
+  width: 100%;
+  max-width: 500px;
+  object-fit: cover;
+  border-radius: 0;
+  filter: grayscale(1);
+}
+
+.about-title {
+  font-family: 'Bodoni Moda', serif;
+  font-size: 3vw;
+  font-weight: 400;
+  color: #dadada;
+  margin-bottom: 1.5rem;
+}
+
+.about-subtitle {
+  font-size: 1.5rem;
+  color: #dadada;
+  margin-bottom: 1rem;
+}
+
+.about-just {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+}
+
+.about-what {
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  color: #dadada;
+  opacity: 0.7;
+}
+
+.about-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  color: #dadada;
+  margin-top: 1.5rem;
+  line-height: 1.5;
 }

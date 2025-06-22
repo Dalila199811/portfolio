@@ -90,20 +90,20 @@ var callback = function(items){
     if(item.isIntersecting){
       item.target.classList.add("in-page");
       if(stella) {
-        stella.classList.remove('rotate-once'); // Reset animation
-        void stella.offsetWidth; // Force reflow for restart
+        stella.classList.remove('rotate-once');
+        void stella.offsetWidth;
         stella.classList.add('rotate-once');
       }
     } else{
       item.target.classList.remove("in-page");
       if(stella) {
-        stella.classList.remove('rotate-once'); // Remove when out of view
+        stella.classList.remove('rotate-once');
       }
     }
   });
 }
 
-var observer = new IntersectionObserver(callback, { threshold: 0.6 } );
+var observer = new IntersectionObserver(callback, { threshold: 0.25});
 
 elements_to_watch.forEach((element) => {
   observer.observe(element); 
