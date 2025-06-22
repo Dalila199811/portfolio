@@ -1,45 +1,47 @@
-// Loader animation
-function createSunLines(numLines = 24, radius = 400, color = "#f56900", id = "sun-lines") {
+// Loader animation: sun rays loading
+function createLoaderRays(numRays = 24, radius = 120, color = "#f56900", id = "loader-loading") {
   const container = document.getElementById(id);
   if (!container) return;
   const size = radius * 2;
   let svg = `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" style="position:absolute;top:0;left:0;">`;
-  for (let i = 0; i < numLines; i++) {
-    const angle = (i / numLines) * 2 * Math.PI;
+  for (let i = 0; i < numRays; i++) {
+    const angle = (i / numRays) * 2 * Math.PI;
     const x2 = radius + radius * Math.cos(angle);
     const y2 = radius + radius * Math.sin(angle);
-    svg += `<line x1="${radius}" y1="${radius}" x2="${x2}" y2="${y2}" stroke="${color}" stroke-width="2" opacity="${0.7 + 0.3 * Math.random()}"/>`;
+    svg += `<line id="ray-${i}" x1="${radius}" y1="${radius}" x2="${x2}" y2="${y2}" stroke="${color}" stroke-width="3" opacity="0"/>`;
   }
   svg += "</svg>";
   container.innerHTML = svg;
 }
 
-// Loader suns
-createSunLines(40, 150, "#F1F3F5", "loader-sun-big");
-createSunLines(20, 60, "#f56900", "loader-sun-small");
+createLoaderRays(24, 120, "#f56900", "loader-loading");
 
-// Loader rotation
-let loaderAngle = 0;
-let loaderAngleSmall = 0;
-const loaderInterval = setInterval(() => {
-  loaderAngle += 2;
-  loaderAngleSmall -= 4;
-  const big = document.getElementById("loader-sun-big");
-  const small = document.getElementById("loader-sun-small");
-  if (big && big.firstChild) big.firstChild.style.transform = `rotate(${loaderAngle}deg)`;
-  if (small && small.firstChild) small.firstChild.style.transform = `rotate(${loaderAngleSmall}deg)`;
-}, 6000);
+// Animazione: mostra i raggi uno dopo l'altro
+function animateLoaderRays(numRays = 24, duration = 2000) {
+  let current = 0;
+  const interval = duration / numRays;
+  const showRay = () => {
+    if (current < numRays) {
+      const ray = document.getElementById(`ray-${current}`);
+      if (ray) ray.setAttribute("opacity", "1");
+      current++;
+      setTimeout(showRay, interval);
+    }
+  };
+  showRay();
+}
 
-// Hide loader on page load
+animateLoaderRays(24, 2000); // 2 secondi per mostrare tutti i raggi
+
+// Nascondi loader dopo 3 secondi
 window.addEventListener('load', () => {
-  document.getElementById('loader-overlay').classList.add('hide');
   setTimeout(() => {
-    document.getElementById('loader-overlay').style.display = 'none';
-    clearInterval(loaderInterval);
-  }, 6000);
+    document.getElementById('loader-overlay').classList.add('hide');
+    setTimeout(() => {
+      document.getElementById('loader-overlay').style.display = 'none';
+    }, 700); // tempo per la dissolvenza CSS
+  }, 3000); // loader visibile per 3 secondi
 });
-
-
 
 
 
