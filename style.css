@@ -35,7 +35,7 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #e3dccf; /* o il colore che preferisci */
+  background: #0c0a0a; 
   transition: opacity 0.6s;
 }
 
@@ -51,6 +51,22 @@ h3 {
 #loader-overlay.hide {
   opacity: 0;
   pointer-events: none;
+}
+
+/*triangles */
+.divider-zigzag {
+  height: 24px;
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+
+}
+.divider-zigzag svg {
+  display: block;
+  width: 100%;
+  height: 24px;
 }
 
 
@@ -78,6 +94,10 @@ h3 {
   margin-right: 10vw;
   max-width: 100%;  
 
+}
+
+.and-orange {
+  color: #f56900;
 }
 
 
@@ -510,10 +530,11 @@ h3 {
 
 .about-img {
   width: 100%;
-  max-width: 500px;
+  max-width: 320px;
   object-fit: cover;
   border-radius: 0;
   filter: grayscale(1);
+  margin-left: 100px;
 }
 
 .about-title {
@@ -554,6 +575,7 @@ h3 {
 .marquee {
     overflow: hidden;
     width: 100%;
+    position: relative;
     display: block;
     color: #f7f9fa;
     padding: 30px 0;
@@ -562,7 +584,8 @@ h3 {
 
 .marquee__inner {
     display: flex;
-    min-width: 0;
+    min-width: 0%;
+    width: 100%;
     flex-direction: row;
 }
 
@@ -584,4 +607,14 @@ h3 {
 .arrow.active {
     transform: rotate(-90deg);
     transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.freccia {
+  position: absolute;
+  right: 2%;
+  bottom: 0;
+  height: 100px; /* regola la dimensione a piacere */
+  width: auto;
+  z-index: 2;
+  margin-bottom: 10rem;
 }

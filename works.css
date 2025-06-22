@@ -53,3 +53,29 @@ ul.work-list li {
   border-bottom: none;
   margin-bottom: 0;
 }
+
+
+.sidebar {
+    display: flex;
+    position: fixed; 
+    left: 70px; 
+    top: 0; 
+    height: 100vh;
+    width: 100px;  
+    z-index: 3;
+    padding: 2rem; 
+    font-family: Poppins;
+    align-items: flex-start;
+}
+
+.sidebar .navbar-nav {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar .nav-item {
+  margin: 2rem 0;
+}
