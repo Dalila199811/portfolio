@@ -34,7 +34,7 @@ function animateLoaderRays(numRays = 50, duration = 3000) {
 
 animateLoaderRays(50, 3000);
 
-// Nascondi loader dopo 3 secondi
+// Nascondi loader 
 window.addEventListener('load', () => {
   setTimeout(() => {
     document.getElementById('loader-overlay').classList.add('hide');
