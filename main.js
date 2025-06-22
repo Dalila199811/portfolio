@@ -16,8 +16,7 @@ function createLoaderRays(numRays = 24, radius = 120, color = "#f56900", id = "l
 
 createLoaderRays(24, 120, "#f56900", "loader-loading");
 
-// Animazione: mostra i raggi uno dopo l'altro
-function animateLoaderRays(numRays = 24, duration = 2000) {
+function animateLoaderRays(numRays = 24, duration = 3000) {
   let current = 0;
   const interval = duration / numRays;
   const showRay = () => {
@@ -31,7 +30,7 @@ function animateLoaderRays(numRays = 24, duration = 2000) {
   showRay();
 }
 
-animateLoaderRays(24, 2000); // 2 secondi per mostrare tutti i raggi
+animateLoaderRays(24, 2000);
 
 // Nascondi loader dopo 3 secondi
 window.addEventListener('load', () => {
