@@ -206,41 +206,44 @@ h3 {
 
 /* button works */
 .custom-btn-works {
-  background: transparent;
-  color: #fff;
+  color: #dadada;
   font-family: 'Montserrat', sans-serif;
-  font-style: italic;
   font-size: 2rem;
   font-weight: auto;
   border: none;
   border-radius: 0;
   padding: 0.5em 0;
-  margin-top: 0rem 0;
-  margin-left: auto;
   margin-right: auto;
-  text-align: center;
-  position: relative;
+  text-align: left;
   transition: color 0.2s;
   text-transform: none;
   box-shadow: none;
   outline: none;
   display: block;
   padding-right: 0;
+  position: relative;
 }
 
 .custom-btn-works::after {
   content: "";
-  display: block;
+  position: absolute;
+  right: 0;
+  left: auto;
+  bottom: 0;
+  width: 0;
   height: 4px;
   background: #fff;
   margin-top: 0.3em;
-  transition: width 0.8s cubic-bezier(.215, .61, .355, 1), background 0.8s;
-  text-align: center;
+  border-radius: 2px;
+  transition: width 0.5s cubic-bezier(.77,0,.18,1), background 0.2s;
+  z-index: 1;
 }
 
 .custom-btn-works:hover::after,
 .custom-btn-works:focus::after {
   width: 100%;
+  left: 0;
+  right: auto;
   background: #f56900;
 }
 

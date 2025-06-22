@@ -111,15 +111,24 @@ elements_to_watch.forEach((element) => {
 
 gsap.registerPlugin(ScrollTrigger);
 
-gsap.registerPlugin(ScrollTrigger);
-
 gsap.to("#stella-gsap", {
-  rotate: 600, // o il numero di gradi
+  rotate: 600,
   scrollTrigger: {
     trigger: "#stella-gsap",
-    start: "top bottom",    // quando la stella entra nella viewport
-    end: "bottom top",      // quando la stella esce dalla viewport
-    scrub: true             
+    start: "top bottom",
+    end: "bottom top",
+    scrub: true
+  }
+});
+
+//  elemento2
+gsap.to("#elemento2-gsap", {
+  rotate: -600,
+  scrollTrigger: {
+    trigger: "#elemento2-gsap",
+    start: "top bottom",
+    end: "bottom top",
+    scrub: true
   }
 });
 
