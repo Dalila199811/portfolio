@@ -44,8 +44,6 @@ window.addEventListener('load', () => {
   }, 3000); 
 });
 
-
-
 gsap.to('.vertical-line', {
   height: '100vh',
   scrollTrigger: {
@@ -133,7 +131,6 @@ gsap.to("#elemento2-gsap", {
   }
 });
 
-
 //  marquee
 let currentScroll = 0;
 let isScrollingDown = true;
@@ -184,4 +181,5 @@ const navLinks = document.getElementById('nav-links');
 toggle.addEventListener('click', () => {
   navLinks.classList.toggle('open');
 });
+
 

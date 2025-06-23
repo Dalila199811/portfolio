@@ -605,7 +605,9 @@ h3 {
 
 /*marquee*/
 .marquee {
-      overflow: hidden;
+  font-family: 'Bodoni Moda', serif;
+  font-style: italic;
+    overflow: hidden;
     white-space: nowrap;
     width: 100%;         /* Cambia da 100% a 100vw */
     position: relative;
@@ -696,3 +698,25 @@ h3 {
     flex-direction: column;
   }
 }
+
+.stella-rotate {
+    position: absolute;
+  top: 30%;
+  right: 10%;
+  width: 60px;
+  height: 60px;
+  animation: stella-spin 6s linear infinite;
+  transition: transform 0.3s;
+  /* Non mettere transform qui! */
+}
+
+@keyframes stella-spin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
+.stella-rotate.hover-effect {
+  /* Solo traslazione e scala, la rotazione resta gestita dall'animazione */
+  transform: translateY(-10px) scale(1.1);
+}
+
