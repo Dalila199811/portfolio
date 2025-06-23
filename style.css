@@ -9,6 +9,7 @@ body {
     color: #F1F3F5;
     justify-content: center;
     font-family: Instrument Sans, sans-serif;
+    width: 100%;
 }
 
 body::-webkit-scrollbar {
@@ -51,6 +52,12 @@ h3 {
 #loader-overlay.hide {
   opacity: 0;
   pointer-events: none;
+}
+
+.container{
+  width: 100vw;
+  margin-right: 20px;
+  padding-top: 0;
 }
 
 .section.watch .title {
@@ -122,7 +129,6 @@ h3 {
     height: 100vh;
     display: flex;
     justify-content: flex-start;
-    align-items: center;
     max-width: 50%;
     position: fixed;
     top: 0; 
@@ -131,6 +137,7 @@ h3 {
     transform: scale(1);
     transition: all 1s cubic-bezier(.215, .61, .355, 1);
     opacity: 0;
+    align-items: center;
 }
 
 .title-right {
@@ -156,6 +163,8 @@ h3 {
     justify-content: center;
     align-items: center;
     padding: 2rem 0;
+    margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 @media (max-width: 991.98px) {
@@ -221,49 +230,17 @@ h3 {
   background: #f56900;
 }
 
-.container{
-    width: 100%;
-    color: #d0cbcb;
-    padding-left: 10rem;
-}
-
 .panel--about {
   position: relative;
-  height: 100vh;
-  background: #f56900;
+  height: 200vh;
   overflow: hidden;
   justify-content: center;
-}
-
-.img-caption {
-  position: static !important;
-  opacity: 1 !important;
-  background: none !important;
-  color: #0c0c0c;
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-top: 0.5rem;
-  pointer-events: auto;
-  text-align: center;
-}
-
-.about-content {
   position: relative;
-  z-index: 1;
-  flex-direction: column;
-  text-align: center;
-  align-items: center;
-  color: #F1F3F5;
-}
-
-/* sezione about */
-.panel--about {
-  display: flex;
   align-items: flex-start;
   justify-content: center;
-  min-height: 60vh;
+  height: 100vh;
+  margin-bottom: -100px;
   background: transparent;
-  margin-top: 2rem;
   padding-top: 2rem;
 }
 
@@ -274,6 +251,21 @@ h3 {
   color: #F1F3F5;
   margin-bottom: 1.5rem;
   letter-spacing: 0;
+}
+
+.about-elemento1 {
+  height: 200px;         
+  width: auto;
+  margin-left: 30rem;
+  display: flex;
+  margin-bottom: 150px;
+  animation: rotate-elemento1 20s linear infinite;
+  margin-top: -230px;
+}
+
+@keyframes rotate-elemento1 {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
 }
 
 .contact-exclaim {
@@ -461,7 +453,7 @@ h3 {
   object-fit: cover;
   border-radius: 0;
   filter: grayscale(1);
-  margin-left: 100px;
+  margin-left: 300px;
 }
 
 .about-title {
@@ -528,7 +520,7 @@ h3 {
 .freccia {
   position: absolute;
   right: 2%;
-  bottom: 0;
+  bottom: -80px;
   height: 100px; /* regola la dimensione a piacere */
   width: auto;
   z-index: 2;
@@ -536,14 +528,19 @@ h3 {
 }
 
 .social {
-  display: flex;
   font-size: 1.2rem;
+  font-family: 'Instrument Sans', sans-serif;
   opacity: 50%;
+  margin-bottom: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .social a {
-  color: #f56900;
-  margin: 0 180px;
+  color: #dadada;
+  margin: 0 8.5rem;
   text-decoration: none;
 }
 
