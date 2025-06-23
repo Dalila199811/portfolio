@@ -1,15 +1,34 @@
-body {
-  cursor: none;
-  background: #111;
-  color: white;
-  font-family: sans-serif;
-  height: 100vh;
-  overflow: hidden;
-  padding: 50px;
-   height: auto;
-  overflow-x: hidden;
-  overflow-y: auto;
+html {
+  scroll-behavior: smooth;  
+  -ms-overflow-style: none;
+  scrollbar-width: none; 
 }
+
+body {
+    background-color: #0c0a0a; 
+    color: #F1F3F5;
+    justify-content: center;
+    font-family: Instrument Sans, sans-serif;
+    width: 100%;
+}
+
+body::-webkit-scrollbar {
+  display: none;               
+}
+
+h2 {
+    font-family: 'Bodoni Moda', serif; 
+    font-style: italic;
+    font-size: 9vh;
+    gap: 16rem;
+}
+
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    font-size: 4vh;
+}
+
 
 ul.work-list {
   list-style: none;
@@ -54,7 +73,7 @@ ul.work-list li {
   margin-bottom: 0;
 }
 
-
+/*Sidebar*/
 .sidebar {
     display: flex;
     position: fixed; 
@@ -78,4 +97,33 @@ ul.work-list li {
 
 .sidebar .nav-item {
   margin: 2rem 0;
+}
+
+.divider-line {
+  width: 0;
+  height: 2px;
+  background: #dadada;
+  margin: 2rem 0;
+  border: none;
+  position: relative;
+  left: 0;
+  z-index: 0;
+  transition: width 0.3s;
+  float: right;
+}
+
+@media (max-width: 767.98px) {
+  .mobile-topbar .btn,
+  .btn-outline-light {
+    border: none !important;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: none !important;
+  }
+    .navbar .btn,
+.btn-outline-light {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: inherit;
+}
 }
