@@ -9,6 +9,26 @@ body {
   overflow-x: hidden;
 }
 
+.freccia-back {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  z-index: 6;
+  display: flex;
+  transform: rotate(180deg);
+}
+
+.freccia-back img {
+  width: 70px;
+  height: auto;
+  transition: transform 0.2s;
+  z-index: 6;
+}
+
+.freccia-back:hover img {
+  transform: scale(1.1);
+}
+
 .work-section {
   position: relative;
   width: 100%;
@@ -34,7 +54,6 @@ body {
   padding: 20px;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.4); /* leggera ombra per leggere meglio */
   max-width: 90%;
   margin: 0 auto;
   border-radius: 12px;
@@ -49,7 +68,6 @@ body {
   font-size: 1.2rem;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .text-container h1 {
     font-size: 2rem;
