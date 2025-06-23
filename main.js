@@ -1,4 +1,4 @@
-function createLoaderRays(numRays = 24, radius = 120, color = "#f56900", id = "loader-loading", innerRadius = 40) {
+function createLoaderRays(numRays = 50, radius = 120, color = "#f56900", id = "loader-loading", innerRadius = 40) {
   const container = document.getElementById(id);
   if (!container) return;
   const size = radius * 2;
@@ -18,7 +18,7 @@ function createLoaderRays(numRays = 24, radius = 120, color = "#f56900", id = "l
 // spazio centrale
 createLoaderRays(30, 120, "#f56900", "loader-loading", 70);
 
-function animateLoaderRays(numRays = 50, duration = 3000) {
+function animateLoaderRays(numRays = 50, duration = 2500) {
   let current = 0;
   const interval = duration / numRays;
   const showRay = () => {
@@ -32,9 +32,9 @@ function animateLoaderRays(numRays = 50, duration = 3000) {
   showRay();
 }
 
-animateLoaderRays(50, 3000);
+animateLoaderRays(50, 2500);
 
-// Nascondi loader 
+// Nascondo loader 
 window.addEventListener('load', () => {
   setTimeout(() => {
     document.getElementById('loader-overlay').classList.add('hide');
@@ -111,8 +111,6 @@ var observer = new IntersectionObserver(callback, { threshold: 0.25});
 elements_to_watch.forEach((element) => {
   observer.observe(element); 
 });
-
-gsap.registerPlugin(ScrollTrigger);
 
 gsap.to("#stella-gsap", {
   rotate: 600,
